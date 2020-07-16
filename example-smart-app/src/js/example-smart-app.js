@@ -120,6 +120,7 @@
   window.drawVisualization = function(p) {
     $('#holder').show();
     $('#loading').hide();
+	$('$id').html(p.id);
     $('#fname').html(p.fname);
     $('#lname').html(p.lname);
     $('#gender').html(p.gender);

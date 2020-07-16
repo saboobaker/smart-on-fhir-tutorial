@@ -31,7 +31,7 @@
 		  console.log(patient)
           var fname = '';
           var lname = '';
-
+          var info = '';
           if (typeof patient.name[0] !== 'undefined') {
             fname = patient.name[0].given.join(' ');
             lname = patient.name[0].family.join(' ');
@@ -50,7 +50,7 @@
           p.fname = fname;
           p.lname = lname;
           p.height = getQuantityValueAndUnit(height[0]);
-
+          p.info = patient.text.div 
           if (typeof systolicbp != 'undefined')  {
             p.systolicbp = systolicbp;
           }
@@ -78,6 +78,7 @@
     return {
       id: {value: ''},
       fname: {value: ''},
+	  info: {value: ''},
       lname: {value: ''},
       gender: {value: ''},
       birthdate: {value: ''},
@@ -121,6 +122,7 @@
     $('#holder').show();
     $('#loading').hide();
 	$('#id').html(p.id);
+	$('#info').html(p.info);
     $('#fname').html(p.fname);
     $('#lname').html(p.lname);
     $('#gender').html(p.gender);

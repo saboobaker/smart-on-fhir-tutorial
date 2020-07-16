@@ -50,7 +50,8 @@
           p.fname = fname;
           p.lname = lname;
           p.height = getQuantityValueAndUnit(height[0]);
-          p.info = patient.text.div 
+          p.info = patient.text.div;
+		  console.log(patient.text.div)
           if (typeof systolicbp != 'undefined')  {
             p.systolicbp = systolicbp;
           }

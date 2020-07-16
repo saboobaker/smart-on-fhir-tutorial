@@ -8,12 +8,9 @@
     }
 
     function onReady(smart)  {
-      console.log(smart);
-	  console.log(smart.patient.identifier);
       if (smart.hasOwnProperty('patient')) {
         var patient = smart.patient;
         var pt = patient.read();
-	    console.log(pt);
         var obv = smart.patient.api.fetchAll({
                     type: 'Observation',
                     query: {
@@ -31,6 +28,7 @@
           var byCodes = smart.byCodes(obv, 'code');
           var gender = patient.gender;
           var id = patient.id;
+		  console.log(patient)
           var fname = '';
           var lname = '';
 

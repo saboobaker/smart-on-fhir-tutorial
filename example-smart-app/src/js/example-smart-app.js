@@ -34,6 +34,7 @@
          // var byCodes = smart.byCodes(obv, 'code');
           var id = patient.id;
 		  console.log(patient);
+		  console.log(smart.tokenResponse.encounter);
 		  var uId = smart.tokenResponse.user;
 		  var uName = smart.tokenResponse.username;
 		  //console.log(us);

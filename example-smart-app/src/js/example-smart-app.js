@@ -43,7 +43,7 @@
           p.info = patient.text.div;
 		  p.uName = uName;
 		  p.uId = uId;
-
+          p.encounterId= smart.tokenResponse.encounter;
           ret.resolve(p);
         });
       } else {
@@ -61,7 +61,8 @@
       id: {value: ''},
 	  info: {value: ''},
 	  uId: {value:''},
-	  uName: {value:''}
+	  uName: {value:''},
+	  encounterId: {value:''}
     };
   }
 
@@ -73,6 +74,7 @@
 	$('#info').html(p.info);
 	$('#userid').html(p.uId);
 	$('#userName').html(p.uName);
+	$('#encounterId').html(p.encounterId);
   };
 
 })(window);

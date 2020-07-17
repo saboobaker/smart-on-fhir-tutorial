@@ -30,17 +30,19 @@
         */
 		$.when(pt).fail(onError);
 
-        $.when(pt).done(function(patient,us) {
+        $.when(pt).done(function(patient) {
          // var byCodes = smart.byCodes(obv, 'code');
-          var gender = patient.gender;
           var id = patient.id;
 		  console.log(patient);
-		  console.log(smart.tokenResponse.user);
+		  var uId = smart.tokenResponse.user;
+		  var uName = smart.tokenResponse.username;
 		  //console.log(us);
           var info = '';
-          var p = defaultPatient();
+          var p = defaultInfo();
           p.id = patient.id;
           p.info = patient.text.div;
+		  p.uName = uName;
+		  p.uId = uId;
 
           ret.resolve(p);
         });
@@ -58,6 +60,8 @@
     return {
       id: {value: ''},
 	  info: {value: ''},
+	  uId: {value:''},
+	  uName: {value:''}
     };
   }
 
@@ -67,6 +71,8 @@
     $('#loading').hide();
 	$('#id').html(p.id);
 	$('#info').html(p.info);
+	$('#userid').html(p.uId);
+	$('#userName').html(p.uName);
   };
 
 })(window);

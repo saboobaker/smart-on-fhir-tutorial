@@ -28,10 +28,11 @@
                   });
 
         */
-		$.when(pt).fail(onError);
+		$.when(pt,us).fail(onError);
 
-        $.when(pt).done(function(patient) {
+        $.when(pt,us).done(function(patient,us) {
          // var byCodes = smart.byCodes(obv, 'code');
+		  console.log(us);
           var gender = patient.gender;
           var id = patient.id;
 		  console.log(patient);

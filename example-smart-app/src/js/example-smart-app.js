@@ -40,9 +40,8 @@
 		  //console.log(us);
 		  var edipiSysId = "urn:oid:2.16.840.1.113883.3.42.10001.100001.12";
 		  var identifiers = patient.identifier;
-		  //var edipiList = identifiers.filter(system=edipiSysId);
-		  console.log(identifiers);
-		 // console.log(edipiList);
+		  var edipiList = identifiers.filter(function (el) {return el.system==edipiSysId});
+		  console.log(edipiList);
           var info = '';
           var p = defaultInfo();
           p.id = patient.id;

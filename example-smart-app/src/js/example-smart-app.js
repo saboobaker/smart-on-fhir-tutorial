@@ -13,7 +13,7 @@
         var pt = patient.read();
 		console.log(smart);
 		var user = smart.user;
-		// var us = user.read();
+		var us = user.read(user.userId);
 		console.log(user);
 		/*
         var obv = smart.patient.api.fetchAll({

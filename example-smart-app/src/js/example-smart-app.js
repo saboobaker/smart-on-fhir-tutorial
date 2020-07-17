@@ -38,6 +38,7 @@
 		  var uId = smart.tokenResponse.user;
 		  var uName = smart.tokenResponse.username;
 		  //console.log(us);
+		  
 		  var edipiSysId = "urn:oid:2.16.840.1.113883.3.42.10001.100001.12";
 		  var identifiers = patient.identifier;
 		  var edipiList = identifiers.filter(function (el) {return el.system==edipiSysId});
@@ -48,14 +49,19 @@
 		  }
           var info = '';
           var p = defaultInfo();
+		  var stationId='Pending';
+	      var email = 'Pending';
           p.id = patient.id;
           p.info = patient.text.div;
 		  p.uName = uName;
 		  p.uId = uId;
+		  
           p.encounterId= smart.tokenResponse.encounter;
 		  p.edipi = edipi;
 		  p.noteCode = 'Depending on consent type';
 		  p.noteSystem = 'To Be Defined by Cerner';
+		  p.stationId = stationId;
+		  p.email = email;
           ret.resolve(p);
         });
       } else {
@@ -71,6 +77,8 @@
   function defaultInfo(){
     return {
       id: {value: ''},
+	  stationId: {value: ''},
+	  email: {value: ''},
 	  info: {value: ''},
 	  uId: {value:''},
 	  uName: {value:''},
@@ -86,6 +94,8 @@
     $('#holder').show();
     $('#loading').hide();
 	$('#id').html(p.id);
+	$('#userEmail').html(p.email);
+	$('#stationId').html(p.stationId);	
 	$('#info').html(p.info);
 	$('#userid').html(p.uId);
 	$('#userName').html(p.uName);

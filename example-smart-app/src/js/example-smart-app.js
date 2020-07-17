@@ -35,6 +35,7 @@
           var gender = patient.gender;
           var id = patient.id;
 		  console.log(patient);
+		  console.log(smart.tokenResponse.user);
 		  //console.log(us);
           var info = '';
           var p = defaultPatient();

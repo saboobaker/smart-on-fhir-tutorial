@@ -13,7 +13,7 @@
         var pt = patient.read();
 		console.log(smart);
 		var user = smart.user;
-		var us = user.read(user.userId);
+		// var us = user.read(user.userId);
 		console.log(user);
 		/*
         var obv = smart.patient.api.fetchAll({
@@ -28,11 +28,10 @@
                   });
 
         */
-		$.when(pt,us).fail(onError);
+		$.when(pt).fail(onError);
 
-        $.when(pt,us).done(function(patient,us) {
+        $.when(pt).done(function(patient,us) {
          // var byCodes = smart.byCodes(obv, 'code');
-		  console.log(us);
           var gender = patient.gender;
           var id = patient.id;
 		  console.log(patient);

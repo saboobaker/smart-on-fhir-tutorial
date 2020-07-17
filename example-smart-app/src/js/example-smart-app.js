@@ -42,6 +42,10 @@
 		  var identifiers = patient.identifier;
 		  var edipiList = identifiers.filter(function (el) {return el.system==edipiSysId});
 		  console.log(edipiList);
+		  var edipi = 'Not Defined';
+		  if (edipiList.length>0) {
+			   edipi = edipiList[0].value;
+		  }
           var info = '';
           var p = defaultInfo();
           p.id = patient.id;
@@ -49,6 +53,7 @@
 		  p.uName = uName;
 		  p.uId = uId;
           p.encounterId= smart.tokenResponse.encounter;
+		  p.edipi = edipi;
           ret.resolve(p);
         });
       } else {
@@ -67,7 +72,8 @@
 	  info: {value: ''},
 	  uId: {value:''},
 	  uName: {value:''},
-	  encounterId: {value:''}
+	  encounterId: {value:''},
+	  edipi: {value: ''}
     };
   }
 
@@ -80,6 +86,8 @@
 	$('#userid').html(p.uId);
 	$('#userName').html(p.uName);
 	$('#encounterId').html(p.encounterId);
+	$('#edipi').html(p.edipi);
+	
   };
 
 })(window);

@@ -56,7 +56,7 @@
 
   };
 
-  function defaultPatient(){
+  function defaultInfo(){
     return {
       id: {value: ''},
 	  info: {value: ''},

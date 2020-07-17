@@ -76,8 +76,8 @@
 	  uName: {value:''},
 	  encounterId: {value:''},
 	  edipi: {value: ''},
-	  noteCode: {value ''},
-	  noteSystem: {value ''}
+	  noteCode: {value: ''},
+	  noteSystem: {value: ''}
     };
   }
 

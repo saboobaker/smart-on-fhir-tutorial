@@ -54,6 +54,8 @@
 		  p.uId = uId;
           p.encounterId= smart.tokenResponse.encounter;
 		  p.edipi = edipi;
+		  p.noteCode = 'Depending on consent type';
+		  p.noteSystem = 'To Be Defined by Cerner';
           ret.resolve(p);
         });
       } else {
@@ -73,7 +75,9 @@
 	  uId: {value:''},
 	  uName: {value:''},
 	  encounterId: {value:''},
-	  edipi: {value: ''}
+	  edipi: {value: ''},
+	  noteCode: {value ''},
+	  noteSystem: {value ''}
     };
   }
 
@@ -87,6 +91,8 @@
 	$('#userName').html(p.uName);
 	$('#encounterId').html(p.encounterId);
 	$('#edipi').html(p.edipi);
+	$('#noteCode').html(p.noteCode);
+	$('#notesystem').html(p.noteSystem);
 	
   };
 

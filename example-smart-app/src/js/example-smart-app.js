@@ -25,13 +25,14 @@
                     }
                   });
 
-        $.when(pt, obv).fail(onError);
+        $.when(pt, obv,us).fail(onError);
 
-        $.when(pt, obv).done(function(patient, obv) {
+        $.when(pt, obv,us).done(function(patient, obv, us) {
           var byCodes = smart.byCodes(obv, 'code');
           var gender = patient.gender;
           var id = patient.id;
 		  console.log(patient);
+		  console.log(us);
           var fname = '';
           var lname = '';
           var info = '';

@@ -32,7 +32,6 @@
           var gender = patient.gender;
           var id = patient.id;
 		  console.log(patient);
-		  console.log(user);
           var fname = '';
           var lname = '';
           var info = '';

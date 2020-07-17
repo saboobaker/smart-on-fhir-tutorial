@@ -39,7 +39,7 @@
 		  var uName = smart.tokenResponse.username;
 		  //console.log(us);
 		  var edipiSysId = "urn:oid:2.16.840.1.113883.3.42.10001.100001.12";
-		  var identifers = patient.identifier;
+		  var identifiers = patient.identifier;
 		  var edipiList = identifiers.filter(system=edipiSysId);
 		  console.log(identifiers);
 		  console.log(edipiList);

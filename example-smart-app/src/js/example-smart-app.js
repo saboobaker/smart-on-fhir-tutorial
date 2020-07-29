@@ -16,7 +16,7 @@
 
 		$.when(pt).fail(onError);
 
-        $.when(pt,us).done(function(patient) {
+        $.when(pt).done(function(patient) {
          // var byCodes = smart.byCodes(obv, 'code');
           var id = patient.id;
 		  console.log(patient);

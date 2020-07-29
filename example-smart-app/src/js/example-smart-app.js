@@ -14,18 +14,16 @@
 		console.log(smart);
 		var user = smart.user;
 		var us = user.read();
-		console.log(user);
 
 		$.when(pt).fail(onError);
 
-        $.when(pt).done(function(patient) {
+        $.when(pt,us).done(function(patient,user) {
          // var byCodes = smart.byCodes(obv, 'code');
           var id = patient.id;
 		  console.log(patient);
-		  console.log(smart.tokenResponse.encounter);
 		  var uId = smart.tokenResponse.user;
 		  var uName = smart.tokenResponse.username;
-		  console.log(us);
+		  console.log(user);
 		  
 		  var edipiSysId = "urn:oid:2.16.840.1.113883.3.42.10001.100001.12";
 		  var identifiers = patient.identifier;

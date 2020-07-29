@@ -13,21 +13,9 @@
         var pt = patient.read();
 		console.log(smart);
 		var user = smart.user;
-		// var us = user.read(user.userId);
+		var us = user.read();
 		console.log(user);
-		/*
-        var obv = smart.patient.api.fetchAll({
-                    type: 'Observation',
-                    query: {
-                      code: {
-                        $or: ['http://loinc.org|8302-2', 'http://loinc.org|8462-4',
-                              'http://loinc.org|8480-6', 'http://loinc.org|2085-9',
-                              'http://loinc.org|2089-1', 'http://loinc.org|55284-4']
-                      }
-                    }
-                  });
 
-        */
 		$.when(pt).fail(onError);
 
         $.when(pt).done(function(patient) {
@@ -37,7 +25,7 @@
 		  console.log(smart.tokenResponse.encounter);
 		  var uId = smart.tokenResponse.user;
 		  var uName = smart.tokenResponse.username;
-		  //console.log(us);
+		  console.log(us);
 		  
 		  var edipiSysId = "urn:oid:2.16.840.1.113883.3.42.10001.100001.12";
 		  var identifiers = patient.identifier;

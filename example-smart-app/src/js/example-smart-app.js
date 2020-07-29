@@ -13,13 +13,10 @@
         var pt = patient.read();
 		console.log(smart);
 		var us = smart.get(smart.userId);
-		$.when(us).done (function(user) {
-			 console.log(us);
-			 console.log(user);
-		});
+
 		$.when(pt).fail(onError);
 
-        $.when(pt).done(function(patient) {
+        $.when(pt,us).done(function(patient) {
          // var byCodes = smart.byCodes(obv, 'code');
           var id = patient.id;
 		  console.log(patient);

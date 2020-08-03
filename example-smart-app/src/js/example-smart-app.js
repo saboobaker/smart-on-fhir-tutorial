@@ -12,8 +12,11 @@
         var patient = smart.patient;
         var pt = patient.read();
 		console.log(smart);
-		var us = smart.get(smart.userId);
-
+		var us = smart.api.fetch(smart.userId);
+        $.when(us).done (function(user) {
+			console.log(user);
+			console.log(us);
+		});
 		$.when(pt).fail(onError);
 
         $.when(pt).done(function(patient) {

@@ -15,12 +15,12 @@
       if (smart.hasOwnProperty('patient')) {
         var patient = smart.patient;
         var pt = patient.read();
-		var user = smart.user;
-		var us = user.read();
+	//	var user = smart.user;
+	//	var us = user.read();
 		console.log(smart);
 		$.when(pt).fail(onError);
 
-        $.when(pt,us).done(function(patient,user) {
+        $.when(pt).done(function(patient) {
          // var byCodes = smart.byCodes(obv, 'code');
           var id = patient.id;
 		  console.log(patient);

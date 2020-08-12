@@ -12,8 +12,12 @@
     //            console.log(user);
     //  });
 	  if (smart.hasOwnProperty('user')) {
-		  console.log('Yes -- it has user');
+		  var user = smart.user;
+		  var us = smart.read();
 	  }		  
+	  $when(us).done(function (user) {
+		     console.log(user);
+	  });
       if (smart.hasOwnProperty('patient')) {
         var patient = smart.patient;
         var pt = patient.read();

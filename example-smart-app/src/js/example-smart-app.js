@@ -15,7 +15,7 @@
 		  var user = smart.user;
 		  var us = user.read();
 	  }		  
-	  $when(us).done(function (user) {
+	  $.when(us).done(function (user) {
 		     console.log(user);
 	  });
       if (smart.hasOwnProperty('patient')) {

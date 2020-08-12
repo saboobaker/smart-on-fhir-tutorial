@@ -8,29 +8,37 @@
     }
 
     function onReady(smart)  {
-    // smart.user.read().then( user =>  {
-    //            console.log(user);
-    //  });
-	  if (smart.hasOwnProperty('user')) {
-		  console.log(smart.user);
-		  console.log(smart.userId);
-		  var user = smart.user;
-		  var us = smart.get({resource:"Practitioner", id:smart.tokenResponse.user });//user.read();
-          console.log(us);		  
-	  $.when(us).fail (onError);  
-	  $.when(us).done(function (user) {
-		     console.log(user);
-	  });		  
-	  }		  
 
       if (smart.hasOwnProperty('patient')) {
         var patient = smart.patient;
         var pt = patient.read();
-		console.log(smart);
-		$.when(pt).fail(onError);
+	    var user = smart.user;
+		var us = smart.get({resource:"Practitioner", id:smart.tokenResponse.user });//user.read();
 
-        $.when(pt).done(function(patient) {
+		console.log(smart);
+		$.when(pt,us).fail(onError);
+
+        $.when(pt,us).done(function(patient,user) {
          // var byCodes = smart.byCodes(obv, 'code');
+          var p = defaultInfo();
+		 
+		 // User (Practitioner) Stuff
+		  var stationId='Pending';
+	      var email = 'Pending';
+		  
+		  var user = smart.user;
+		  var us = smart.get({resource:"Practitioner", id:smart.tokenResponse.user });//user.read();
+
+  		  var telecoms = user.telecom;
+		  var emailList = user.telecom.filter(function (el) {return el.system=="email"});
+          if (emailList.length>0) {
+			  email = emailList[0].value;
+		  }
+		  // Need to get station Id here
+		  p.stationId = stationId;
+		  p.email = email;
+		  
+       // Patient Stuff
           var id = patient.id;
 		  console.log(patient);
 		  var uId = smart.tokenResponse.user;
@@ -45,9 +53,6 @@
 			   edipi = edipiList[0].value;
 		  }
           var info = '';
-          var p = defaultInfo();
-		  var stationId='Pending';
-	      var email = 'Pending';
           p.id = patient.id;
           p.info = patient.text.div;
 		  p.uName = uName;
@@ -57,8 +62,6 @@
 		  p.edipi = edipi;
 		  p.noteCode = 'Depending on consent type';
 		  p.noteSystem = 'To Be Defined by Cerner';
-		  p.stationId = stationId;
-		  p.email = email;
           ret.resolve(p);
         });
       } else {

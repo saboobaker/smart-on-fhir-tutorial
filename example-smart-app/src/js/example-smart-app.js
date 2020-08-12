@@ -17,11 +17,11 @@
 		  var user = smart.user;
 		  var us = smart.get(smart.userId);
           console.log(us);		  
-		  
-	  }		  
 	  $.when(us).done(function (user) {
 		     console.log(user);
-	  });
+	  });		  
+	  }		  
+
       if (smart.hasOwnProperty('patient')) {
         var patient = smart.patient;
         var pt = patient.read();

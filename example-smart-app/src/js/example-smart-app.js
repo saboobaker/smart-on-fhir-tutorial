@@ -15,7 +15,7 @@
 		  console.log(smart.user);
 		  console.log(smart.userId);
 		  var user = smart.user;
-		  var us = user.read();
+		  var us = smart.get(smart.userId);//user.read();
           console.log(us);		  
 	  $.when(us).fail (onError);  
 	  $.when(us).done(function (user) {

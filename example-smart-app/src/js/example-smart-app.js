@@ -25,9 +25,6 @@
 		 // User (Practitioner) Stuff
 		  var stationId='Pending';
 	      var email = 'Pending';
-		  
-		  var user = smart.user;
-		  var us = smart.get({resource:"Practitioner", id:smart.tokenResponse.user });//user.read();
 
   		  var telecoms = user.telecom;
 		  var emailList = user.telecom.filter(function (el) {return el.system=="email"});

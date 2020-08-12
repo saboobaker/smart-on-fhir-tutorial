@@ -24,7 +24,7 @@
 		 
 		 // User (Practitioner) Stuff
 		  var stationId='Pending';
-	      var email = 'Pending';
+	      var email = 'Undefined';
 
   		  var telecoms = user.telecom;
 		  var emailList = user.telecom.filter(function (el) {return el.system=="email"});

@@ -13,7 +13,7 @@
     //  });
 	  if (smart.hasOwnProperty('user')) {
 		  var user = smart.user;
-		  var us = smart.read();
+		  var us = user.read();
 	  }		  
 	  $when(us).done(function (user) {
 		     console.log(user);

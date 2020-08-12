@@ -12,8 +12,12 @@
     //            console.log(user);
     //  });
 	  if (smart.hasOwnProperty('user')) {
+		  console.log(smart.user);
+		  console.log(smart.userId);
 		  var user = smart.user;
 		  var us = user.read();
+		  
+		  
 	  }		  
 	  $.when(us).done(function (user) {
 		     console.log(user);

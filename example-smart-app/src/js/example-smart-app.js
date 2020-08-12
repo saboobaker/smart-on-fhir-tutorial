@@ -23,6 +23,7 @@
           var p = defaultInfo();
 		 
 		 // User (Practitioner) Stuff
+		  console.log(user);
 		  var stationId='Pending';
 	      var email = 'Undefined';
 

@@ -11,20 +11,19 @@
     // smart.user.read().then( user =>  {
     //            console.log(user);
     //  });
-	    
+	  if (smart.hasOwnProperty('user')) {
+		  console.log('Yes -- it has user');
+	  }		  
       if (smart.hasOwnProperty('patient')) {
         var patient = smart.patient;
         var pt = patient.read();
-		var user = smart.user;
-		var us = user.read();
 		console.log(smart);
 		$.when(pt).fail(onError);
 
-        $.when(pt,us).done(function(patient,user) {
+        $.when(pt).done(function(patient) {
          // var byCodes = smart.byCodes(obv, 'code');
           var id = patient.id;
 		  console.log(patient);
-		  console.log(user);
 		  var uId = smart.tokenResponse.user;
 		  var uName = smart.tokenResponse.username;
 		  

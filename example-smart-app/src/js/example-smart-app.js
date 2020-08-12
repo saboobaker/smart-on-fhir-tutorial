@@ -15,16 +15,16 @@
       if (smart.hasOwnProperty('patient')) {
         var patient = smart.patient;
         var pt = patient.read();
-	//	var user = smart.user;
-	//	var us = user.read();
+		var user = smart.user;
+		var us = user.read();
 		console.log(smart);
 		$.when(pt).fail(onError);
 
-        $.when(pt).done(function(patient) {
+        $.when(pt,us).done(function(patient,user) {
          // var byCodes = smart.byCodes(obv, 'code');
           var id = patient.id;
 		  console.log(patient);
-		 // console.log(user);
+		  console.log(user);
 		  var uId = smart.tokenResponse.user;
 		  var uName = smart.tokenResponse.username;
 		  

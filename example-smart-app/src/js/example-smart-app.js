@@ -14,7 +14,7 @@
         var pt = patient.read();
 	    var user = smart.user;
 		var us = smart.get({resource:"Practitioner", id:smart.tokenResponse.user });//user.read();
-
+        var encounter = smart.get({resource:"Encounter",id:smart.tokenResponse.encounter}); 
 		console.log(smart);
 		$.when(pt,us).fail(onError);
 

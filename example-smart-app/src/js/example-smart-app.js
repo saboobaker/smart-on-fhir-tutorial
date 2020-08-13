@@ -14,16 +14,17 @@
         var pt = patient.read();
 	    var user = smart.user;
 		var us = smart.get({resource:"Practitioner", id:smart.tokenResponse.user });//user.read();
-        var encounter = smart.get({resource:"Encounter",id:smart.tokenResponse.encounter}); 
+        var en = smart.get({resource:"Encounter",id:smart.tokenResponse.encounter}); 
 		console.log(smart);
 		$.when(pt,us).fail(onError);
 
-        $.when(pt,us).done(function(patient,user) {
+        $.when(pt,us,en).done(function(patient,user,encounter) {
          // var byCodes = smart.byCodes(obv, 'code');
           var p = defaultInfo();
 		 
 		 // User (Practitioner) Stuff
 		  console.log(user);
+		  console.log(encounter);
 		  var stationId='Undefined';
 	      var email = 'Undefined';
 

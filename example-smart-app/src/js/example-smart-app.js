@@ -32,8 +32,8 @@
 			  email = emailList[0].value;
 		  }
 		  // Need to get station Id here
-		  if (user.hasOwnProperty('Identifer')) {
-		   var userIdentifiers = user.Identifier.filter(function(el) {return el.type.text="OTHER"}) 
+		  if (user.hasOwnProperty('identifer')) {
+		   var userIdentifiers = user.identifier.filter(function(el) {return el.type.text="OTHER"}) 
 		   stationId = userIdentifiers[0];
 		  }
 		  p.stationId = stationId;

@@ -24,7 +24,7 @@
 		 
 		 // User (Practitioner) Stuff
 		  console.log(user);
-		  var stationId='Pending';
+		  var stationId='Undefined';
 	      var email = 'Undefined';
 
 		  var emailList = user.telecom.filter(function (el) {return el.system=="email"});
@@ -32,7 +32,7 @@
 			  email = emailList[0].value;
 		  }
 		  // Need to get station Id here
-		  if (user.hasOwnProperty('identifer')) {
+		  if (user.hasOwnProperty('identifier')) {
 		   var userIdentifiers = user.identifier.filter(function(el) {return el.type.text="OTHER"}) 
 		   stationId = userIdentifiers[0];
 		  }

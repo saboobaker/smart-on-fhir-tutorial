@@ -34,7 +34,7 @@
 		  // Need to get station Id here
 		  if (user.hasOwnProperty('identifier')) {
 		   var userIdentifiers = user.identifier.filter(function(el) {return el.type.text="OTHER"}) 
-		   stationId = userIdentifiers[0];
+		   stationId = userIdentifiers[0].value;
 		  }
 		  p.stationId = stationId;
 		  p.email = email;

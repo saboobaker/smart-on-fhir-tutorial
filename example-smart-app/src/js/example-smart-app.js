@@ -27,14 +27,18 @@
 		  var stationId='Pending';
 	      var email = 'Undefined';
 
-  		  var telecoms = user.telecom;
 		  var emailList = user.telecom.filter(function (el) {return el.system=="email"});
           if (emailList.length>0) {
 			  email = emailList[0].value;
 		  }
 		  // Need to get station Id here
+		  if (user.hasAttribute("Identifer") {
+		   var userIdentifiers = user.Identifier.filter(function(el) {return el.type.text="OTHER"}) 
+		   stationId = userIdentifiers[0];
+		  }
 		  p.stationId = stationId;
 		  p.email = email;
+		  
 		  
        // Patient Stuff
           var id = patient.id;

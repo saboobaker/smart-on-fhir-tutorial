@@ -64,7 +64,7 @@
           p.encounterId= smart.tokenResponse.encounter;
 		  p.edipi = edipi;
 		  p.noteCode = 'Depending on consent type';
-		  p.noteSystem = 'To Be Defined by Cerner';
+		  p.noteSystem = ' https://fhir-ehr.sandboxcerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeset/72';
           ret.resolve(p);
         });
       } else {
@@ -97,16 +97,19 @@
     $('#holder').show();
     $('#loading').hide();
 	$('#id').html(p.id);
+	$('#edipi').html(p.edipi);
 	$('#userEmail').html(p.email);
 	$('#stationId').html(p.stationId);	
 	$('#info').html(p.info);
 	$('#userid').html(p.uId);
 	$('#userName').html(p.uName);
 	$('#encounterId').html(p.encounterId);
-	$('#edipi').html(p.edipi);
 	$('#noteCode').html(p.noteCode);
 	$('#notesystem').html(p.noteSystem);
-	
+    $("#calljs").click(function(e) {
+       e.preventDefault(); 
+	   alert('Will Call Cerner API');
+    });
   };
 
 })(window);

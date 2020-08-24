@@ -74,7 +74,7 @@
       }
     }
 
-    FHIR.oauth2.ready(onReady, onError);
+    FHIR.oauth2.ready().then(onSuccess).catch(onError);;
     return ret.promise();
 
   };

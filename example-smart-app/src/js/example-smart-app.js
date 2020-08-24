@@ -1,7 +1,6 @@
 (function(window){
   window.extractData = function() {
     var ret = $.Deferred();
-    var attachment = getDefaultAttachment();
     function onError() {
       console.log('Loading error', arguments);
       ret.reject();
@@ -80,23 +79,6 @@
 
   };
   
-  function getDefaultDocument(){
-	  return {
-	  encounterId: {value:''},
-	  edipi: {value: ''},
-	  noteCode: {value: ''},
-	  noteSystem: {value: ''}
-	  };
-  }
-  function getDefaultAttachment() {
-	  return{
-		  attachment: {
-		     contentType: {value: 'application/xhtml+xml;charset=utf-8'},
-		     content: {value: 'PCFET0NUWVBFIGh0bWwgUFVCTElDICItLy9XM0MvL0RURCBYSFRNTCAxLjEvL0VOIg0KImh0dHA6Ly93d3cudzMub3JnL1RSL3hodG1sMTEvRFREL3hodG1sMTEuZHRkIj4NCjxodG1sIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hodG1sIj4NCjxoZWFkPg0KICA8dGl0bGU+U0lDIERvY3VtZW50PC90aXRsZT4NCjwvaGVhZD4NCjxib2R5Pg0KVGhpcyBpcyBhIHRlc3RpbmcNCjwvYm9keT4NCjwvaHRtbD4='
-		     }
-		  }
-	  };
-  }
   function defaultInfo(){
     return {
       id: {value: ''},

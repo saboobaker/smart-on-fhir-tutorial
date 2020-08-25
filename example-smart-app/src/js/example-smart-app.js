@@ -53,12 +53,14 @@
 		  var uName = smart.state.tokenResponse.username;
 		  
 		  var edipiSysId = "urn:oid:2.16.840.1.113883.3.42.10001.100001.12";
+		  var edipi = 'Not Defined';
+		  if (patient.hasOwnProperty('identifier') {
 		  var identifiers = patient.identifier;
 		  var edipiList = identifiers.filter(function (el) {return el.system==edipiSysId});
 		  console.log(edipiList);
-		  var edipi = 'Not Defined';
 		  if (edipiList.length>0) {
 			   edipi = edipiList[0].value;
+		  }
 		  }
           var info = '';
           p.id = patient.id;

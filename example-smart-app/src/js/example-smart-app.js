@@ -12,7 +12,7 @@
         var patient = smart.patient;
         var pt = patient.read();
 	    var user = smart.user;
-		var practitionerID = smart.tokenResponse.user;
+		var practitionerID = smart.state.tokenResponse.user;
 		// temporary hard code practitioner ID
 		var practitionerID = 11817978;
 		var us = smart.get({resource:"Practitioner", id:practitionerID});//user.read();

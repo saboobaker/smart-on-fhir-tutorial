@@ -70,7 +70,7 @@
 		  p.uName = uName;
 		  p.uId = uId;
 		  
-          p.encounterId= smart.tokenResponse.encounter;
+          p.encounterId= smart.state.tokenResponse.encounter;
 		  p.edipi = edipi;
 		  p.noteCode = 'Depending on consent type';
 		  p.noteSystem = 'https://fhir-ehr.sandboxcerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeset/72';

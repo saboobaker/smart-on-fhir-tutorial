@@ -11,7 +11,7 @@
       if (smart.hasOwnProperty('patient')) {
         var patient = smart.patient;
         var pt = patient.read();
-	    var user = smart.user;
+	    var us = smart.user;
 		var practitionerID = smart.state.tokenResponse.user;
 		// temporary hard code practitioner ID
 		var practitionerCall = 'Practitioner/11817978';

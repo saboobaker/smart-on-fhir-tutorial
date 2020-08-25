@@ -31,9 +31,11 @@
 		  var stationId='Undefined';
 	      var email = 'Undefined';
 
-		  var emailList = user.telecom.filter(function (el) {return el.system=="email"});
-          if (emailList.length>0) {
-			  email = emailList[0].value;
+          if (user.hasOwnProperty('telecom')) {
+		     var emailList = user.telecom.filter(function (el) {return el.system=="email"});
+             if (emailList.length>0) {
+			    email = emailList[0].value;
+		     }
 		  }
 		  // Need to get station Id here
 		  if (user.hasOwnProperty('identifier')) {

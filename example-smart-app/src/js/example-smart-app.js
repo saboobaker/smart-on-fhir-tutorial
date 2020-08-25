@@ -16,7 +16,7 @@
 		// temporary hard code practitioner ID
 		var practitionerID = 11817978;
 		var us = smart.get({resource:"Practitioner", id:practitionerID});//user.read();
-        var en = smart.get({resource:"Encounter",id:smart.tokenResponse.encounter}); 
+        var en = smart.get({resource:"Encounter",id:smart.state.tokenResponse.encounter}); 
 		console.log(smart);
 		$.when(pt,us).fail(onError);
 

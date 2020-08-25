@@ -64,7 +64,9 @@
 		  }
           var info = '';
           p.id = patient.id;
-          p.info = patient.text.div;
+		  if (patient.hasOwnProperty('text')){
+             p.info = patient.text.div;
+		  }
 		  p.uName = uName;
 		  p.uId = uId;
 		  

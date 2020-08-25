@@ -15,7 +15,8 @@
 		var practitionerID = smart.state.tokenResponse.user;
 		// temporary hard code practitioner ID
 		var practitionerCall = 'Practitioner/11817978';
-		var us = smart.request(practitionerCall); //get({resource:"Practitioner", id:practitionerID});//user.read();
+		//var us = smart.request(practitionerCall);		//get({resource:"Practitioner", id:practitionerID});//user.read();
+		var us = smart.request(`Practitioner/${smart.state.tokenResponse.user}`);
         var en = smart.encounter.read();//smart.get({resource:"Encounter",id:smart.state.tokenResponse.encounter}); 
 		console.log(smart);
 		$.when(pt,us).fail(onError);
@@ -46,8 +47,8 @@
        // Patient Stuff
           var id = patient.id;
 		  console.log(patient);
-		  var uId = smart.tokenResponse.user;
-		  var uName = smart.tokenResponse.username;
+		  var uId = smart.state.tokenResponse.user;
+		  var uName = smart.state.tokenResponse.username;
 		  
 		  var edipiSysId = "urn:oid:2.16.840.1.113883.3.42.10001.100001.12";
 		  var identifiers = patient.identifier;

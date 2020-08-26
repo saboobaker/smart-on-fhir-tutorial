@@ -99,7 +99,7 @@ function onError() {
 			  reference: `Patient/${data.id}`
 		  },
 		  type: { 
-		    coding: {[{system:"some system", code: "30202"}]}			  
+		    coding: [{system:"some system", code: "30202"}]			  
 		  },
 		  attachment: {
 		     contentType: 'application/xhtml+xml;charset=utf-8',

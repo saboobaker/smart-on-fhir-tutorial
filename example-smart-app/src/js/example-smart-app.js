@@ -104,8 +104,32 @@ function onError() {
 		  attachment: {
 		     contentType: 'application/xhtml+xml;charset=utf-8',
 		     content:'PCFET0NUWVBFIGh0bWwgUFVCTElDICItLy9XM0MvL0RURCBYSFRNTCAxLjEvL0VOIg0KImh0dHA6Ly93d3cudzMub3JnL1RSL3hodG1sMTEvRFREL3hodG1sMTEuZHRkIj4NCjxodG1sIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hodG1sIj4NCjxoZWFkPg0KICA8dGl0bGU+U0lDIERvY3VtZW50PC90aXRsZT4NCjwvaGVhZD4NCjxib2R5Pg0KVGhpcyBpcyBhIHRlc3RpbmcNCjwvYm9keT4NCjwvaHRtbD4='
-		     }
-		  };
+		     },
+         indexed: '2015-11-18T18:00:00Z',
+          status: 'current',			 
+         docStatus: {
+                 coding: [
+                          {
+                            system: 'http://hl7.org/fhir/composition-status',
+                            code: 'final'
+                          }
+                         ]
+                    },
+          description: 'Rheumatology Note',	
+         content: [ 
+		           {
+		             attachment: 
+					 {						 
+		              contentType: 'application/xhtml+xml;charset=utf-8',
+		              content:'PCFET0NUWVBFIGh0bWwgUFVCTElDICItLy9XM0MvL0RURCBYSFRNTCAxLjEvL0VOIg0KImh0dHA6Ly93d3cudzMub3JnL1RSL3hodG1sMTEvRFREL3hodG1sMTEuZHRkIj4NCjxodG1sIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hodG1sIj4NCjxoZWFkPg0KICA8dGl0bGU+U0lDIERvY3VtZW50PC90aXRsZT4NCjwvaGVhZD4NCjxib2R5Pg0KVGhpcyBpcyBhIHRlc3RpbmcNCjwvYm9keT4NCjwvaHRtbD4='
+		             }					   
+			 
+		            }
+		          ],
+            context: {
+                       encounter: {reference: `Encounter/${data.encounterId}`}
+					  }
+		};
 	  }
 
 /*

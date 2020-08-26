@@ -1,7 +1,6 @@
 (function(window){
   window.extractData = function() {
     var ret = $.Deferred();
-    var attachment = getDefaultAttachment();    
 function onError() {
       console.log('Loading error', arguments);
       ret.reject();
@@ -124,7 +123,10 @@ function onError() {
     };
   }
 
-
+function sendAttachment() {
+    var attachment = getDefaultAttachment();    
+	JSON.stringity(attachment);
+}
   window.drawVisualization = function(p) {
     $('#holder').show();
     $('#loading').hide();
@@ -140,7 +142,7 @@ function onError() {
 	$('#notesystem').html(p.noteSystem);
     $("#calljs").click(function(e) {
        e.preventDefault(); 
-	   alert(JSON.stringity(attachment));
+	   alert(sendAttachment());
     });
   };
 

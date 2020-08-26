@@ -19,7 +19,6 @@
         var en = smart.request(`Encounter/${smart.state.tokenResponse.encounter}`);
         //var en = smart.encounter.read();//smart.get({resource:"Encounter",id:smart.state.tokenResponse.encounter}); 
 		console.log(smart);
-		$.when(pt,us).fail(onError);
 		
         var p = defaultInfo();
 		
@@ -80,8 +79,8 @@
 		  // use encounter information here. 
 		  console.log(encounter);
 		})
-		
-         ret.resolve(p);
+		Promise.allSettled([us,pt,en]).then((results) => ret.resolve(p));
+
       } else {
         onError();
       }

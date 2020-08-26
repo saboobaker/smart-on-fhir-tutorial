@@ -125,7 +125,7 @@ function onError() {
 
 function sendAttachment() {
     var attachment = getDefaultAttachment();    
-	console.log(JSON.stringity(attachment));
+	console.log(JSON.stringify(attachment));
 }
   window.drawVisualization = function(p) {
     $('#holder').show();

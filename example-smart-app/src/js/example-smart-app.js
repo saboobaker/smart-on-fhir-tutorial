@@ -57,7 +57,6 @@
         us.then((user) => {
 		 // User (Practitioner) Stuff
 		  console.log(user);
-		  console.log(encounter);
 		  var stationId='Undefined';
 	      var email = 'Undefined';
 
@@ -79,6 +78,7 @@
 		
         en.then((encounter) => {		
 		  // use encounter information here. 
+		  console.log(encounter);
 		})
 		
          ret.resolve(p);

@@ -11,13 +11,13 @@
       if (smart.hasOwnProperty('patient')) {
         var patient = smart.patient;
         var pt = patient.read();
-	    var us = smart.user;
 		var practitionerID = smart.state.tokenResponse.user;
 		// temporary hard code practitioner ID
 		var practitionerCall = 'Practitioner/11817978';
-		//var us = smart.request(practitionerCall);		//get({resource:"Practitioner", id:practitionerID});//user.read();
-		var us = smart.request(`Practitioner/${smart.state.tokenResponse.user}`);
-        var en = smart.encounter.read();//smart.get({resource:"Encounter",id:smart.state.tokenResponse.encounter}); 
+	    var us = smart.request(practitionerCall);		//get({resource:"Practitioner", id:practitionerID});//user.read();
+	//	var us = smart.request(`Practitioner/${smart.state.tokenResponse.user}`);
+        var en = smart.request(`Encounter/${smart.state.tokenResponse.encounter}`);
+        //var en = smart.encounter.read();//smart.get({resource:"Encounter",id:smart.state.tokenResponse.encounter}); 
 		console.log(smart);
 		$.when(pt,us).fail(onError);
 

@@ -20,11 +20,41 @@
         //var en = smart.encounter.read();//smart.get({resource:"Encounter",id:smart.state.tokenResponse.encounter}); 
 		console.log(smart);
 		$.when(pt,us).fail(onError);
+		
+        var p = defaultInfo();
+		
+          p.encounterId= smart.state.tokenResponse.encounter;
+		  p.noteCode = 'Depending on consent type';
+		  p.noteSystem = 'https://fhir-ehr.sandboxcerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeset/72';
+		  p.uName = smart.state.tokenResponse.username;
+		  p.uId = smart.state.tokenResponse.user;
+		
+		pt.then((patient) => {
+			
+       // Patient Stuff
+		  console.log(patient);
+		  
+		  var edipiSysId = "urn:oid:2.16.840.1.113883.3.42.10001.100001.12";
+		  var edipi = 'Not Defined';
+		  
+		  
+		  if (patient.hasOwnProperty('identifier')) {
+		     var identifiers = patient.identifier;
+		     var edipiList = identifiers.filter(function (el) {return el.system==edipiSysId});
+		     console.log(edipiList);
+		     if (edipiList.length>0) {
+			    edipi = edipiList[0].value;
+		     }
+		  }
+		  p.edipi = edipi;
+		  if (patient.hasOwnProperty('text')){
+             p.info = patient.text.div;
+		  }
+          p.id = patient.id;
+  
+         });
 
-        $.when(pt,us,en).done(function(patient,user,encounter) {
-         // var byCodes = smart.byCodes(obv, 'code');
-          var p = defaultInfo();
-		 
+        us.then((user) => {
 		 // User (Practitioner) Stuff
 		  console.log(user);
 		  console.log(encounter);
@@ -44,38 +74,14 @@
 		  }
 		  p.stationId = stationId;
 		  p.email = email;
-		  
-		  
-       // Patient Stuff
-          var id = patient.id;
-		  console.log(patient);
-		  var uId = smart.state.tokenResponse.user;
-		  var uName = smart.state.tokenResponse.username;
-		  
-		  var edipiSysId = "urn:oid:2.16.840.1.113883.3.42.10001.100001.12";
-		  var edipi = 'Not Defined';
-		  if (patient.hasOwnProperty('identifier')) {
-		     var identifiers = patient.identifier;
-		     var edipiList = identifiers.filter(function (el) {return el.system==edipiSysId});
-		     console.log(edipiList);
-		     if (edipiList.length>0) {
-			    edipi = edipiList[0].value;
-		     }
-		  }
-          var info = '';
-          p.id = patient.id;
-		  if (patient.hasOwnProperty('text')){
-             p.info = patient.text.div;
-		  }
-		  p.uName = uName;
-		  p.uId = uId;
-		  
-          p.encounterId= smart.state.tokenResponse.encounter;
-		  p.edipi = edipi;
-		  p.noteCode = 'Depending on consent type';
-		  p.noteSystem = 'https://fhir-ehr.sandboxcerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeset/72';
-          ret.resolve(p);
-        });
+			
+		});
+		
+        en.then((encounter) => {		
+		  // use encounter information here. 
+		})
+		
+         ret.resolve(p);
       } else {
         onError();
       }

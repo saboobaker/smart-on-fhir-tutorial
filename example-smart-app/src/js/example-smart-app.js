@@ -125,7 +125,7 @@ function onError() {
 
 function sendAttachment() {
     var attachment = getDefaultAttachment();    
-	JSON.stringity(attachment);
+	console.log(JSON.stringity(attachment));
 }
   window.drawVisualization = function(p) {
     $('#holder').show();
@@ -142,7 +142,7 @@ function sendAttachment() {
 	$('#notesystem').html(p.noteSystem);
     $("#calljs").click(function(e) {
        e.preventDefault(); 
-	   alert(sendAttachment());
+	   sendAttachment();
     });
   };
 

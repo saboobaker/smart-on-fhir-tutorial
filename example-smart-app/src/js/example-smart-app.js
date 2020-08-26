@@ -91,22 +91,68 @@ function onError() {
     return ret.promise();
 
   };
-    function getDefaultDocument(){
-	  return {
-	  encounterId: {value:''},
-	  edipi: {value: ''},
-	  noteCode: {value: ''},
-	  noteSystem: {value: ''}
-	  };
-  }
-  function getDefaultAttachment() {
+
+  function getDocument(data) {
 	  return{
-		  attachment: {
-		     contentType: {value: 'application/xhtml+xml;charset=utf-8'},
-		     content: {value: 'PCFET0NUWVBFIGh0bWwgUFVCTElDICItLy9XM0MvL0RURCBYSFRNTCAxLjEvL0VOIg0KImh0dHA6Ly93d3cudzMub3JnL1RSL3hodG1sMTEvRFREL3hodG1sMTEuZHRkIj4NCjxodG1sIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hodG1sIj4NCjxoZWFkPg0KICA8dGl0bGU+U0lDIERvY3VtZW50PC90aXRsZT4NCjwvaGVhZD4NCjxib2R5Pg0KVGhpcyBpcyBhIHRlc3RpbmcNCjwvYm9keT4NCjwvaHRtbD4='
-		     }
+		  resourceType: "DocumentReference",
+		  subject: {
+			  reference: `Patient/${data.id}`
 		  }
+		  attachment: [{
+		     contentType: 'application/xhtml+xml;charset=utf-8',
+		     content:'PCFET0NUWVBFIGh0bWwgUFVCTElDICItLy9XM0MvL0RURCBYSFRNTCAxLjEvL0VOIg0KImh0dHA6Ly93d3cudzMub3JnL1RSL3hodG1sMTEvRFREL3hodG1sMTEuZHRkIj4NCjxodG1sIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hodG1sIj4NCjxoZWFkPg0KICA8dGl0bGU+U0lDIERvY3VtZW50PC90aXRsZT4NCjwvaGVhZD4NCjxib2R5Pg0KVGhpcyBpcyBhIHRlc3RpbmcNCjwvYm9keT4NCjwvaHRtbD4='
+		     }
+		  }]
 	  };
+/*
+{
+  "resourceType": "DocumentReference",
+  "subject": {
+    "reference": "Patient/53663272"
+  },
+  "type": {
+    "coding": [
+      {
+        "system": "http://loinc.org",
+        "code": "34840-9"
+      }
+    ]
+  },
+  "author": [
+    {
+      "reference": "Practitioner/21500981"
+    }
+  ],
+  "indexed": "2015-11-18T18:00:00Z",
+  "status": "current",
+  "docStatus": {
+    "coding": [
+      {
+        "system": "http://hl7.org/fhir/composition-status",
+        "code": "final"
+      }
+    ]
+  },
+  "description": "Rheumatology Note",
+  "content": [
+    {
+      "attachment": {
+        "contentType": "application/xhtml+xml;charset=utf-8",
+        "data": "<snipped for brevity>"
+      }
+	  
+    }
+  ],
+  "context": {
+    "encounter": {
+      "reference": "Encounter/4208059"
+    },
+    "period": {
+      "end": "2015-08-20T09:10:14Z"
+    }
+  }
+}
+*/	  
   }
   function defaultInfo(){
     return {
@@ -123,9 +169,9 @@ function onError() {
     };
   }
 
-function sendAttachment() {
-    var attachment = getDefaultAttachment();    
-	console.log(JSON.stringify(attachment));
+function sendDocument(data) {
+    var doc = getDocument(data);    
+	console.log(JSON.stringify(doc));
 }
   window.drawVisualization = function(p) {
     $('#holder').show();
@@ -142,7 +188,7 @@ function sendAttachment() {
 	$('#notesystem').html(p.noteSystem);
     $("#calljs").click(function(e) {
        e.preventDefault(); 
-	   sendAttachment();
+	   sendDocument(p);
     });
   };
 

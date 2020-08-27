@@ -117,7 +117,7 @@ function onError() {
 		             attachment: 
 					 {						 
 		              contentType: 'application/xhtml+xml;charset=utf-8',
-		              data:'PCFET0NUWVBFIGh0bWwgUFVCTElDICItLy9XM0MvL0RURCBYSFRNTCAxLjEvL0VOIg0KImh0dHA6Ly93d3cudzMub3JnL1RSL3hodG1sMTEvRFREL3hodG1sMTEuZHRkIj4NCjxodG1sIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hodG1sIj4NCjxoZWFkPg0KICA8dGl0bGU+VGl0bGUgb2YgZG9jdW1lbnQ8L3RpdGxlPg0KPC9oZWFkPg0KPGJvZHk+DQoNCiAgc29tZSBjb250ZW50IGhlcmUuLi4NCg0KPC9ib2R5Pg0KPC9odG1sPg'
+		              data:'PCFET0NUWVBFIEhUTUw+DQo8aHRtbCB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94aHRtbCI+DQo8aGVhZD4NCiAgPHRpdGxlPlRpdGxlIG9mIGRvY3VtZW50PC90aXRsZT4NCjwvaGVhZD4NCjxib2R5Pg0KPHA+DQogIHNvbWUgY29udGVudCBoZXJlLi4uDQo8L3A+DQo8L2JvZHk+DQo8L2h0bWw+'
 		             }					   
 			 
 		            }

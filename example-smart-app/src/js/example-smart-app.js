@@ -150,11 +150,13 @@ function onError() {
 
 function sendDocument(data,smart) {
     var doc = getDocument(data);    
-	// send document through smart here
+ 	console.log(JSON.stringify(doc));
 //	smart.request();
     $('#docStatus').html('<p>Sending Document</p>');
-	console.log(JSON.stringify(doc));
-	console.log(smart);
+	var cr=smart.create(doc)
+	cr.then((result) => {
+		 $('#docStatus').html(result);
+	})
 }
   window.drawVisualization = function(p,client) {
     $('#holder').show();

@@ -152,6 +152,7 @@ function sendDocument(data,smart) {
     var doc = getDocument(data);    
 	// send document through smart here
 //	smart.request();
+    $('#docStatus').html('<p>Sending Document</p>');
 	console.log(JSON.stringify(doc));
 	console.log(smart);
 }

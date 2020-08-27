@@ -99,7 +99,7 @@ function onError() {
 			  reference: `Patient/${data.id}`
 		  },
 		  type: { 
-		    coding: [{system:"http://loinc.org", code: "34840-9"}]			  
+		    coding: [{system:"http://loinc.org", code: "11488-4"}]			  
 		  },
          indexed: new Date(),
           status: 'current',			 

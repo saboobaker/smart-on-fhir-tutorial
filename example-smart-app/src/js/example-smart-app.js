@@ -150,10 +150,11 @@ function sendDocument(data,smart) {
 //	smart.request();
     $('#docStatus').html('<p>Sending Document</p>');
 	var cr=smart.create(doc)
-	cr.then((result) => {
-		console.log(result);
-		 $('#docStatus').html("Completed -- please check status");
-	})
+	Promise.all(cr)
+	.then (responses => {
+		var response = responses[0];
+		 $('#docStatus').html(response.status);	
+		 });
 }
   window.drawVisualization = function(p,client) {
     $('#holder').show();

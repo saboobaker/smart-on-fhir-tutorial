@@ -150,7 +150,7 @@ function sendDocument(data,smart) {
 //	smart.request();
     $('#docStatus').html('<p>Sending Document</p>');
 	var cr=smart.create(doc)
-	Promise.all(cr)
+	Promise.all([cr])
 	.then (responses => {
 		var response = responses[0];
 		 $('#docStatus').html(response.status);	

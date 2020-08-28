@@ -151,7 +151,8 @@ function sendDocument(data,smart) {
     $('#docStatus').html('<p>Sending Document</p>');
 	var cr=smart.create(doc)
 	cr.then((result) => {
-		 $('#docStatus').html(result);
+		console.log(result);
+		 $('#docStatus').html("Completed -- please check status");
 	})
 }
   window.drawVisualization = function(p,client) {

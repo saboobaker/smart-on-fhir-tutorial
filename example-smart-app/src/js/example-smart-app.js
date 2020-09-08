@@ -116,8 +116,8 @@ function onError() {
 		           {
 		             attachment: 
 					 {						 
-		              contentType: 'application/xhtml+xml;charset=utf-8',
-		              data:'PCFET0NUWVBFIEhUTUw+DQo8aHRtbCB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94aHRtbCI+DQo8aGVhZD4NCiAgPHRpdGxlPlRpdGxlIG9mIGRvY3VtZW50PC90aXRsZT4NCjwvaGVhZD4NCjxib2R5Pg0KPHA+DQogIHNvbWUgY29udGVudCBoZXJlLi4uDQo8L3A+DQo8L2JvZHk+DQo8L2h0bWw+'
+		              contentType: 'application/pdf',
+		              url:'/docs/testing-file4.pdf'
 		             }					   
 			 
 		            }

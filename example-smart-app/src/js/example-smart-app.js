@@ -117,7 +117,7 @@ function onError() {
 		            }
 		          ],
             context: {
-                       [encounter: {reference: `Encounter/${data.encounterId}`}],
+                       encounter: [{reference: `Encounter/${data.encounterId}`}],
 					   period:  {start: '2020-09-01T00:00:00.000Z',end: '2020-09-20T01:00:00.000Z'}
 					  }
 		};

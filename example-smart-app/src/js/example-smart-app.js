@@ -152,7 +152,7 @@ function sendDocument(data,smart) {
 	   var loc = response.headers.map.location.split('/');
 	   var docId = loc[loc.length -1];
 	   var docRef=smart.request(`DocumentReference/${docId}`);
-	   docRef.then(docResponse = {
+	   docRef.then(docResponse => {
 		   // get the binary now 
 		   console.log(docResponse);
 	   });

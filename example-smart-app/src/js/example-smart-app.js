@@ -16,7 +16,7 @@ function onError() {
 		var practitionerCall = 'Practitioner/11817978';
 	    var us = smart.request(practitionerCall);		//get({resource:"Practitioner", id:practitionerID});//user.read();
 	//	var us = smart.request(`Practitioner/${smart.state.tokenResponse.user}`);
-        var en = smart.request(`Encounter/${smart.state.tokenResponse.encounter}`);
+        var en = smart.request(`Encounter/${smart.state.tokenResponse.encounter}`); 
         //var en = smart.encounter.read();//smart.get({resource:"Encounter",id:smart.state.tokenResponse.encounter}); 
 		console.log(smart);
 		
@@ -148,7 +148,14 @@ function sendDocument(data,smart) {
 	var cr=smart.create(doc)
      cr.then(response => {
        console.log(response);
-	   console.log(response.headers.map.location);
+	   // Get the document reference object 
+	   var loc = response.headers.map.location.split('/');
+	   var docId = loc[loc.length -1];
+	   var docRef=smart.request(`DocumentReference/${docId}`);
+	   docRef.then(docResponse = {
+		   // get the binary now 
+		   console.log(docResponse);
+	   });
        $('#docStatus').html('<p>Sent</p>');
 	   $('#getPDF').html("<a id='pdfLink' href='https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/XR-197374195'>View PDF</a>");
 	 });

@@ -147,6 +147,8 @@ function sendDocument(data,smart) {
 	var cr=smart.create(doc)
      cr.then(response => {
        console.log(response);
+       $('#docStatus').html('<p>Sent</p>');
+	   $('#getPDF').html("<a id='pdfLink' href='https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/XR-197374195'>View PDF</a>");
 	 });
 }
   window.drawVisualization = function(p,client) {

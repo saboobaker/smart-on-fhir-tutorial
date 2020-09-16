@@ -167,7 +167,7 @@ function getBinaryContent(url, smart) {
     var binRequest = new XMLHttpRequest();
     binRequest.open("Get",url);	
 	binRequest.setRequestHeader("accept","application/json+fhir");
-	binRequest.setRequestHeader("Authorization", `Bearer ${$accessToken}`);	
+	binRequest.setRequestHeader("Authorization", `Bearer ${accessToken}`);	
     binRequest.onreadystatechange = function() {
       if(this.readyState == 4 && this.status == 200) 
 	  {

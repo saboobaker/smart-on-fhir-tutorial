@@ -144,6 +144,7 @@ function sendDocument(data,smart) {
     var doc = getDocument(data);    
  	console.log(JSON.stringify(doc));
 //	smart.request();
+    var accessToken = smart.state.tokenResponse.access_token;
     $('#docStatus').html('<p>Sending Document</p>');
 	var cr=smart.create(doc)
      cr.then(response => {
@@ -157,12 +158,22 @@ function sendDocument(data,smart) {
 		   console.log(docResponse);
 		   var binaryUrl=docResponse.content[0].attachment.url;
            var binary=binaryUrl.split("/");		 
-           var binaryId=binary[binary.length -1];		   
-		   var binaryDoc = smart.request(`Binary/${binaryId}`);
+           var binaryId=binary[binary.length -1];	
+		   var binRequest = new XMLHttpRequest();
+		   binRequest.setRequestHeader("accept","application/json+fhir");
+		   binRequest.setRequestHeader("Authorization", `Bearer ${$accessToken}`);
+           binRequest.onreadystatechange = function() {
+           if(this.readyState == 4 && this.status == 200) {
+             var binResponse = this.responseText;
+			 console.log(binResponse);
+           }
+          };
+/*		   var binaryDoc = smart.request(`Binary/${binaryId}`);
 		   binaryDoc.then (binaryResonse => {
 			    console.log(binaryResponse);  
 		   });
 	   });
+	   */
        $('#docStatus').html('<p>Sent</p>');
 	   $('#getPDF').html("<a id='pdfLink' href='https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/XR-197374195'>View PDF</a>");
 	 });

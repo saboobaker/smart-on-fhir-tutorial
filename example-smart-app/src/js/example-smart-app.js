@@ -93,6 +93,8 @@ function onError() {
   };
 
   function getDocument(data) {
+	  var startDate = new Date();
+	  startDate.setMinutes(startDate.getMinutes() - 50);
 	  return{
 		  resourceType: "DocumentReference",
 		  subject: {
@@ -119,7 +121,7 @@ function onError() {
 		          ],
             context: {
                        encounter: [{reference: `Encounter/${data.encounterId}`}],
-					   period:  {start: new Date().toISOString(),end: new Date().toISOString()}
+					   period:  {start: startDate.toISOString(),end: new Date().toISOString()}
 					  }
 		};
 	  }

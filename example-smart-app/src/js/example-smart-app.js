@@ -170,7 +170,7 @@ function sendDocument(data,smart) {
                 link.innerHTML = 'Download PDF file';
                 link.download = 'file.pdf';
                 link.href = 'data:application/octet-stream;base64,' + binResponse.data;	
-                $("#callPDF").appendChild(link);
+                $("#getPDF").append(link);
               }
            };
            binRequest.send();

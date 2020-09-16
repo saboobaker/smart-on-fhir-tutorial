@@ -166,10 +166,11 @@ function sendDocument(data,smart) {
 	          {
                 var binResponse = this.responseText;
 	            console.log(binResponse);
+				
                 var link = document.createElement('a');
                 link.innerHTML = 'Download PDF file';
                 link.download = 'file.pdf';
-                link.href = 'data:application/octet-stream;base64,' + binResponse.data;	
+                link.href = 'data:application/octet-stream;base64,' + JSON.parse(binResponse).data;	
                 $("#getPDF").append(link);
               }
            };

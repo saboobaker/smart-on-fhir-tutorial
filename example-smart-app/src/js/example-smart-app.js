@@ -172,7 +172,8 @@ function sendDocument(data,smart) {
                 link.href = 'data:application/octet-stream;base64,' + binResponse.data;	
                 $("#callPDF").appendChild(link);
               }
-           };		   
+           };
+           binRequest.send();
 	   });
        $('#docStatus').html('<p>Sent</p>');
 	 });

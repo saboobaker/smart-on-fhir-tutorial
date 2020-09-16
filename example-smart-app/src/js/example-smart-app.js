@@ -146,6 +146,7 @@ function sendDocument(data,smart) {
     var doc = getDocument(data);    
  	console.log(JSON.stringify(doc));
 //	smart.request();
+    $('#getPDF').empty();
     $('#docStatus').html('<p>Sending Document</p>');
 	var cr=smart.create(doc)
      cr.then(response => {
@@ -159,6 +160,9 @@ function sendDocument(data,smart) {
 		   console.log(docResponse);
            $('#docStatus').html('<p>Sent</p>');
 	       var binaryUrl=docResponse.content[0].attachment.url;
+           var binary=binaryUrl.split("/");		 
+           var binaryId=binary[binary.length -1];		   
+
            var accessToken = smart.state.tokenResponse.access_token;
            var binRequest = new XMLHttpRequest();
            binRequest.open("Get",binaryUrl);	
@@ -172,7 +176,7 @@ function sendDocument(data,smart) {
 				
                 var link = document.createElement('a');
                 link.innerHTML = 'Download PDF file';
-                link.download = 'file.pdf';
+                link.download = binaryId + '.pdf';
                 link.href = 'data:application/octet-stream;base64,' + JSON.parse(binResponse).data;	
                 $("#getPDF").append(link);
               }

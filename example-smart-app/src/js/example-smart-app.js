@@ -156,7 +156,23 @@ function sendDocument(data,smart) {
 		   // get the binary now 
 		   console.log(docResponse);
 	       var binaryUrl=docResponse.content[0].attachment.url;
-           getBinaryContent(binaryUrl,smart);
+           var accessToken = smart.state.tokenResponse.access_token;
+           var binRequest = new XMLHttpRequest();
+           binRequest.open("Get",binaryUrl);	
+	       binRequest.setRequestHeader("accept","application/json+fhir");
+	       binRequest.setRequestHeader("Authorization", `Bearer ${accessToken}`);
+           binRequest.onreadystatechange = function() {
+             if(this.readyState == 4 && this.status == 200) 
+	          {
+                var binResponse = this.responseText;
+	            console.log(binResponse);
+                var link = document.createElement('a');
+                link.innerHTML = 'Download PDF file';
+                link.download = 'file.pdf';
+                link.href = 'data:application/octet-stream;base64,' + binResponse.data;	
+                $("#callPDF").appendChild(link);
+              }
+           };		   
 	   });
        $('#docStatus').html('<p>Sent</p>');
 	 });
@@ -202,10 +218,6 @@ function getBinaryFromClient(url, smart) {
        e.preventDefault(); 
 	   sendDocument(p,client);
     });
-	$("#callPDF").click(function(e) {
-		e.preventDefault();
-		getBinaryContent('https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/XR-197374195',client);
-	});
   };
 
 })(window);

@@ -156,7 +156,7 @@ function sendDocument(data,smart) {
 		   // get the binary now 
 		   console.log(docResponse);
 	       var binaryUrl=docResponse.content[0].attachment.url;
-
+           getBinaryContent(binaryUrl,smart);
 	   });
        $('#docStatus').html('<p>Sent</p>');
 	   $('#getPDF').html("<a id='pdfLink' href='https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/XR-197374195'>View PDF</a>");
@@ -165,7 +165,16 @@ function sendDocument(data,smart) {
 
 function getBinaryContent(url, smart) {
 	var accessToken = smart.state.tokenResponse.access_token;
-	
+    var binRequest = new XMLHttpRequest();	
+	binRequest.setRequestHeader("accept","application/json+fhir");
+	binRequest.setRequestHeader("Authorization", `Bearer ${$accessToken}`);	
+    binRequest.onreadystatechange = function() {
+      if(this.readyState == 4 && this.status == 200) 
+	  {
+          var binResponse = this.responseText;
+	      console.log(binResponse);
+      }
+    };	
 }
 function getBinaryFromClient(url, smart) {
      var binary=url.split("/");		 

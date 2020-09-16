@@ -155,6 +155,7 @@ function sendDocument(data,smart) {
 	   docRef.then(docResponse => {
 		   // get the binary now 
 		   console.log(docResponse);
+           $('#docStatus').html('<p>Sent</p>');
 	       var binaryUrl=docResponse.content[0].attachment.url;
            var accessToken = smart.state.tokenResponse.access_token;
            var binRequest = new XMLHttpRequest();
@@ -176,7 +177,6 @@ function sendDocument(data,smart) {
            };
            binRequest.send();
 	   });
-       $('#docStatus').html('<p>Sent</p>');
 	 });
 }
 

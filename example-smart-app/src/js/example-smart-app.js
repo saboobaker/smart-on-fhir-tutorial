@@ -119,7 +119,7 @@ function onError() {
 		          ],
             context: {
                        encounter: [{reference: `Encounter/${data.encounterId}`}],
-					   period:  {start: '2020-09-15T00:00:00.000Z',end: '2020-09-30T01:00:00.000Z'}
+					   period:  {start: new Date().toISOString(),end: new Date().toISOString()}
 					  }
 		};
 	  }

@@ -174,7 +174,8 @@ function getBinaryContent(url, smart) {
           var binResponse = this.responseText;
 	      console.log(binResponse);
       }
-    };	
+    };
+    binRequest.send();	
 }
 function getBinaryFromClient(url, smart) {
      var binary=url.split("/");		 

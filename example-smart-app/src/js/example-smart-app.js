@@ -168,6 +168,7 @@ function sendDocument(data,smart) {
            binRequest.open("Get",binaryUrl);	
 	       binRequest.setRequestHeader("accept","application/json+fhir");
 	       binRequest.setRequestHeader("Authorization", `Bearer ${accessToken}`);
+           $('#getPDF').html('<p>Fetching Document</p>');
            binRequest.onreadystatechange = function() {
              if(this.readyState == 4 && this.status == 200) 
 	          {
@@ -178,6 +179,7 @@ function sendDocument(data,smart) {
                 link.innerHTML = 'Download PDF file';
                 link.download = binaryId + '.pdf';
                 link.href = 'data:application/octet-stream;base64,' + JSON.parse(binResponse).data;	
+                $('#getPDF').empty();
                 $("#getPDF").append(link);
               }
            };

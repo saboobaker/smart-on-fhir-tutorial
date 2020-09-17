@@ -74,17 +74,28 @@
           <td id='notesystem'></td>
         </tr>
 		<tr>
-		  <th>Send Doc to Cerner</th>
+		<th colspan=2>Send Document to Cerner</th> 
+		</tr>
+		<tr>
+		  <th>Choose File</th>
 		  <td>
-		  <table>
+		    <label for="consentFile">Select a file:</label>
+            <input type="file" id="consentFile" name="consentFile">
+		  </td>
+		  </tr>
 		  <tr>
-		  <td id='senddoc'><a id='calljs' href="">Send Document</a></td>
+ 		     <th>Send Document</th>
+		     <td id='senddoc'><a id='calljs' href="">Send Document</a></td>
+		  </tr>
+		  <tr>
+		  <th>Status</th>
 		  <td id='docStatus'></td>
+		  </tr>
+		  <tr>
+		  <th>Download PDF</th>
 		  <td id='getPDF'></td>
 		  </tr>
-		  </table>
-		  </td>
-		</tr>
+		
       </table>
     <!-- Required JS files to enable this page to embed within an MPage -->
     <!--

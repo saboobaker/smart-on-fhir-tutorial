@@ -164,6 +164,10 @@ function onError() {
   }
 
 function sendDocument(data,smart) {
+	if ((b64.length) < 2 ) {
+		alert('Please select a file before trying to send');
+		return;
+	}
     var doc = getDocument(data);    
  	console.log(JSON.stringify(doc));
 //	smart.request();

@@ -248,7 +248,7 @@ function getBinaryFromClient(url, smart) {
        e.preventDefault(); 
 	   sendDocument(p,client);
     });
-	$(#calljs).disabled=true;
+	document.getElementById("calljs").disabled = true;
   };
 
 })(window);

@@ -1,8 +1,9 @@
+  var b64="";
 (function(window){
   window.extractData = function() {
   var ret = $.Deferred();
   var input = document.getElementById('consentFile');
-  var b64="";
+
   
  input.onchange = function () {
    var name=input.files[0].name;

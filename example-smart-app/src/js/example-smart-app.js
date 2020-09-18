@@ -1,7 +1,7 @@
 (function(window){
   window.extractData = function() {
   var ret = $.Deferred();
-  var input = document.getElementbyId('consentFile');
+  var input = document.getElementById('consentFile');
   var b64="";
   
  input.onchange = function () {

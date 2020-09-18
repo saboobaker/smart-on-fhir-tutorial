@@ -24,9 +24,7 @@ function onError() {
       console.log('Loading error', arguments);
       ret.reject();
     }
-function () {
-	
-}
+
 
     function onReady(smart)  {
 
